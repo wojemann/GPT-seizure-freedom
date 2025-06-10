@@ -178,6 +178,52 @@ forest_data.append({
     'label': '65+ yrs'
 })
 
+#reference asm == 0
+forest_data.append({
+    'group':'Number of ASMs',
+    'OR':1,
+    'OR_2.5_ci':1,
+    'OR_97.5_ci':1,
+    'P-value':0,
+    'label': '0 ASMs (Ref.)'
+})
+#asm == 1
+forest_data.append({
+    'group':'Number of ASMs',
+    'OR':model_fits['uni_asms_mdl_py38.pkl'].coefs['OR']['num_asms1'],
+    'OR_2.5_ci':model_fits['uni_asms_mdl_py38.pkl'].coefs['OR_2.5_ci']['num_asms1'],
+    'OR_97.5_ci':model_fits['uni_asms_mdl_py38.pkl'].coefs['OR_97.5_ci']['num_asms1'],
+    'P-value':model_fits['uni_asms_mdl_py38.pkl'].coefs['P-val']['num_asms1'],
+    'label': '1 ASM'
+})
+#asm == 2
+forest_data.append({
+    'group':'Number of ASMs',
+    'OR':model_fits['uni_asms_mdl_py38.pkl'].coefs['OR']['num_asms2'],
+    'OR_2.5_ci':model_fits['uni_asms_mdl_py38.pkl'].coefs['OR_2.5_ci']['num_asms2'],
+    'OR_97.5_ci':model_fits['uni_asms_mdl_py38.pkl'].coefs['OR_97.5_ci']['num_asms2'],
+    'P-value':model_fits['uni_asms_mdl_py38.pkl'].coefs['P-val']['num_asms2'],
+    'label': '2 ASMs'
+})
+#asm == 3
+forest_data.append({
+    'group':'Number of ASMs',
+    'OR':model_fits['uni_asms_mdl_py38.pkl'].coefs['OR']['num_asms3'],
+    'OR_2.5_ci':model_fits['uni_asms_mdl_py38.pkl'].coefs['OR_2.5_ci']['num_asms3'],
+    'OR_97.5_ci':model_fits['uni_asms_mdl_py38.pkl'].coefs['OR_97.5_ci']['num_asms3'],
+    'P-value':model_fits['uni_asms_mdl_py38.pkl'].coefs['P-val']['num_asms3'],
+    'label': '3 ASMs'
+})
+#asm == 4+
+forest_data.append({
+    'group':'Number of ASMs',
+    'OR':model_fits['uni_asms_mdl_py38.pkl'].coefs['OR']['num_asms4'],
+    'OR_2.5_ci':model_fits['uni_asms_mdl_py38.pkl'].coefs['OR_2.5_ci']['num_asms4'],
+    'OR_97.5_ci':model_fits['uni_asms_mdl_py38.pkl'].coefs['OR_97.5_ci']['num_asms4'],
+    'P-value':model_fits['uni_asms_mdl_py38.pkl'].coefs['P-val']['num_asms4'],
+    'label': '4+ ASMs'
+})
+
 #plot the forest plot
 forest_data = pd.DataFrame(forest_data)
 ax = fp.forestplot(forest_data,  
