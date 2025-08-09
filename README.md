@@ -6,6 +6,12 @@ This is the repository containing code required to replicate the analyses and fi
 Ojemann, W.K.S., Xie, K., Liu, K. et al. Zero-Shot Extraction of Seizure Outcomes from Clinical Notes Using Generative Pretrained Transformers. J Healthc Inform Res (2025). https://doi.org/10.1007/s41666-025-00198-5
 
 ## Contents
+* infer_llama.py
+  * Script for running inference on medical notes using the Llama2-13b-instruct checkpoint. This script contains code to generate predictions for all prompt engineering methods described in the methods section. This script was used to generate seizure freedom predictions for both the validation dataset and the disparities analysis.
+* seq_class.py
+  * Script for training a BERT model to classify reasoning output from Llama2 into seizure freedom classes.
+* eval_llama.py
+  * Script for extracting seizure freedom classes from Llama2 output. This script employs regex rules for the one-word prompt and deploys the pretrained BERT model (seq_class.py) to extract seizure freedom classes from reasoning outputs.
 * GPT_analysis_and_visualization.ipynb
   * Notebook for performing statistical comaprisons between different prompt engineering strategies and datasets. This notebook contains the code used to generate Figures 1, 2, 3, and 4 as well as values for Table 2. The notebook also contains code used to generate summary statistics for results sections 3.1-3.4 and 3.6 of the manuscript.
 * logistic_mixed_effects.py
